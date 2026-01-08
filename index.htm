@@ -2,98 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Modern Auth UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
 <style>
-/* Global */
 body{
     margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#f0f2f5;
-    font-family:'Segoe UI', sans-serif;
+    font-family:Arial;
+    background:#1e1e2f;
+    color:white;
+}
+nav{
+    padding:15px;
+    background:#111;
+    text-align:center;
+}
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    cursor:pointer;
+}
+section{
+    padding:40px;
+    text-align:center;
+}
+.btn{
+    padding:10px 20px;
+    background:#6c63ff;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
 }
 .card{
-    width:350px;
-    background:#fff;
-    border-radius:12px;
-    padding:30px 25px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    background:#2b2b40;
+    padding:20px;
+    border-radius:5px;
 }
-h2{
+#modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+}
+#modal div{
+    background:#2b2b40;
+    padding:20px;
+    margin:100px auto;
+    width:250px;
     text-align:center;
-    margin-bottom:25px;
-    color:#333;
 }
-input{
-    width:92%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:14px;
-    outline:none;
-}
-input:focus{
-    border-color:#4f46e5;
-}
-button{
-    width:100%;
-    padding:12px;
-    margin:15px 0;
-    border:none;
-    background:#4f46e5;
-    color:#fff;
-    font-weight:bold;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:15px;
-}
-button:hover{opacity:0.9;}
-.text{
-    text-align:center;
-    font-size:14px;
-    color:#555;
-}
-.text span{
-    color:#4f46e5;
-    cursor:pointer;
-    font-weight:500;
-}
-.hide{display:none;}
 </style>
 </head>
+
 <body>
 
-<div class="card">
-    <div id="loginForm">
-        <h2>Login</h2>
-        <input placeholder="Email or Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-        <p class="text">No account? <span onclick="showRegister()">Register</span></p>
-    </div>
+<nav>
+    <a onclick="showAll()">Home</a>
+    <a onclick="showProjects()">Projects</a>
+    <a onclick="openModal()">Contact</a>
+</nav>
 
-    <div id="registerForm" class="hide">
-        <h2>Register</h2>
-        <input placeholder="Username">
-        <input placeholder="Email">
-        <input type="password" placeholder="Password">
-        <input type="password" placeholder="Confirm Password">
-        <button>Create Account</button>
-        <p class="text">Already have an account? <span onclick="showLogin()">Login</span></p>
+<section id="home">
+    <h1>Hi, I'm John Frich Magan</h1>
+    <p>My Portfolio</p>
+    <button class="btn">Download CV</button>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+        <div class="card">Milk Tea Nexus System</div>
+        <div class="card">Coop Management System</div>
+        <div class="card">Tools Management System</div>
+    </div>
+</section>
+
+<div id="modal">
+    <div>
+        <p>Email: johnfrichmagan@email.com</p>
+        <p>Number: 09061650794</p>
+        <button class="btn" onclick="closeModal()">Close</button>
     </div>
 </div>
 
 <script>
-function showRegister(){
-    loginForm.classList.add("hide");
-    registerForm.classList.remove("hide");
+const home = document.getElementById("home");
+const projects = document.getElementById("projects");
+
+function showProjects(){
+    home.style.display = "none";
+    projects.style.display = "block";
 }
-function showLogin(){
-    registerForm.classList.add("hide");
-    loginForm.classList.remove("hide");
+
+function showAll(){
+    home.style.display = "block";
+    projects.style.display = "block";
+}
+
+function openModal(){
+    modal.style.display="block";
+}
+function closeModal(){
+    modal.style.display="none";
 }
 </script>
 
