@@ -310,15 +310,31 @@ section{
 </section>
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section id="contact">
     <h2>Contact Me</h2>
-    <form class="contact-form" onsubmit="sendEmail(event)">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
+
+    <div style="max-width:500px; margin:auto; display:flex; flex-direction:column; gap:20px;">
+
+        <!-- Contact Info -->
+        <div style="background:var(--card); padding:20px; border-radius:15px; text-align:left;">
+            <h3>My Contact Info</h3>
+            <p><strong>Email:</strong> <a href="johnfrichmagan@gmail.com" style="color:var(--accent); text-decoration:none;">johnfrichmagan@gmail.com</a></p>
+            <p><strong>Facebook:</strong> <a href="https://www.facebook.com/johnfrich.magan/" target="_blank" style="color:var(--accent); text-decoration:none;">https://www.facebook.com/johnfrich.magan/</a></p>
+            <p><strong>Phone:</strong> +639061650794</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" onsubmit="sendEmail(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+    </div>
 </section>
+
 
 <!-- PROJECT MODAL -->
 <div id="modal">
