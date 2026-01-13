@@ -28,7 +28,6 @@ body{
     transition:.4s;
 }
 
-/* NAVBAR */
 nav{
     padding:15px;
     background:#111;
@@ -56,14 +55,12 @@ nav a:hover{
     color:var(--accent);
 }
 
-/* SECTIONS */
 section{
     padding:60px 20px;
     text-align:center;
     animation:fadeSlide .8s ease;
 }
 
-/* BUTTON */
 .btn{
     padding:12px 25px;
     border:none;
@@ -77,7 +74,6 @@ section{
     transform:scale(1.05);
 }
 
-/* HOME */
 .profile{
     display:flex;
     flex-direction:column;
@@ -104,14 +100,12 @@ section{
     opacity:0.9;
 }
 
-/* TYPING NAME */
 .typing{
     font-size:26px;
     font-weight:bold;
     height:35px;
 }
 
-/* SKILLS */
 .skills{
     max-width:500px;
     margin:40px auto;
@@ -140,7 +134,6 @@ section{
     animation:loadBar 1.5s ease;
 }
 
-/* PROJECTS */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -162,7 +155,6 @@ section{
     box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
-/* EXPERIENCE */
 .timeline{
     max-width:700px;
     margin:auto;
@@ -175,7 +167,6 @@ section{
     border-left:4px solid var(--accent);
 }
 
-/* CONTACT FORM */
 .contact-form{
     max-width:500px;
     margin:auto;
@@ -195,7 +186,6 @@ section{
     border-color:var(--accent);
 }
 
-/* MODAL */
 #modal{
     display:none;
     position:fixed;
@@ -214,7 +204,6 @@ section{
     border-radius:10px;
 }
 
-/* ANIMATIONS */
 @keyframes fadeSlide{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
@@ -222,6 +211,55 @@ section{
 @keyframes loadBar{
     from{width:0;}
 }
+
+@media (max-width: 768px) {
+
+    nav{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a{
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .profile{
+        padding: 0 15px;
+    }
+
+    .typing{
+        font-size: 20px;
+        height: auto;
+    }
+
+    .btn{
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+    }
+
+    section{
+        padding: 40px 15px;
+    }
+
+    #modalContent{
+        width: 90%;
+        margin: 80px auto;
+    }
+}
+
 </style>
 </head>
 
@@ -238,7 +276,6 @@ section{
     </div>
 </nav>
 
-<!-- HOME -->
 <section id="home">
     <div class="profile">
         <img src="magan1.png">
@@ -252,7 +289,6 @@ section{
             about learning and building real-world projects.
         </p>
 
-        <!-- SKILLS -->
         <div class="skills">
             <div class="skill">
                 <span>HTML / CSS</span>
@@ -272,7 +308,6 @@ section{
     </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
     <p>Just Click!</p>
@@ -284,7 +319,6 @@ section{
     </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
     <h2>Experience & Education</h2>
     <div class="timeline">
@@ -309,14 +343,11 @@ section{
     </div>
 </section>
 
-<!-- CONTACT -->
-<!-- CONTACT -->
 <section id="contact">
     <h2>Contact Me</h2>
 
     <div style="max-width:500px; margin:auto; display:flex; flex-direction:column; gap:20px;">
 
-        <!-- Contact Info -->
         <div style="background:var(--card); padding:20px; border-radius:15px; text-align:left;">
             <h3>My Contact Info</h3>
             <p><strong>Email:</strong> <a href="johnfrichmagan@gmail.com" style="color:var(--accent); text-decoration:none;">johnfrichmagan@gmail.com</a></p>
@@ -324,7 +355,6 @@ section{
             <p><strong>Phone:</strong> +639061650794</p>
         </div>
 
-        <!-- Contact Form -->
         <form class="contact-form" onsubmit="sendEmail(event)">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
@@ -335,8 +365,6 @@ section{
     </div>
 </section>
 
-
-<!-- PROJECT MODAL -->
 <div id="modal">
     <div id="modalContent">
         <h3 id="modalTitle"></h3>
@@ -353,7 +381,6 @@ const modal=document.getElementById("modal");
 const modalTitle=document.getElementById("modalTitle");
 const modalImg=document.getElementById("modalImg");
 
-/* Typing Animation */
 const nameText="Hi, I'm John Frich Magan";
 let i=0;
 (function type(){
@@ -364,18 +391,15 @@ let i=0;
     }
 })();
 
-/* Navigation */
 function show(id){
     sections.forEach(s=>s.style.display="none");
     document.getElementById(id).style.display="block";
 }
 
-/* Dark / Light mode */
 function toggleTheme(){
     document.body.classList.toggle("light");
 }
 
-/* Project Modal */
 function openProject(title,img){
     modal.style.display="block";
     modalTitle.textContent=title;
@@ -383,13 +407,11 @@ function openProject(title,img){
 }
 function closeModal(){ modal.style.display="none"; }
 
-/* Contact form placeholder */
 function sendEmail(e){
     e.preventDefault();
     alert("This is a demo. You can connect it to EmailJS or backend to send messages.");
 }
 
-/* Default */
 show('home');
 </script>
 
