@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Frich Magan | Portfolio</title>
+
+<style>
+:root{
+    --bg:#1e1e2f;
+    --card:#2b2b40;
+    --text:#ffffff;
+    --accent:#6c63ff;
+}
+.light{
+    --bg:#f4f4f4;
+    --card:#ffffff;
+    --text:#111;
+}
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
+}
+
+/* NAVBAR */
+nav{
+    padding:15px;
+    background:#111;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav span{
+    font-weight:bold;
+    font-size:18px;
+}
+
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    text-align:center;
+    animation:fadeSlide .8s ease;
+}
+
+/* BUTTON */
+.btn{
+    padding:12px 25px;
+    border:none;
+    background:var(--accent);
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+    transition:.3s;
+}
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* HOME */
+.profile{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.profile img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--accent);
+    transition:.4s;
+}
+.profile img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px var(--accent);
+}
+
+.about{
+    max-width:520px;
+    line-height:1.7;
+    opacity:0.9;
+}
+
+/* TYPING NAME */
+.typing{
+    font-size:26px;
+    font-weight:bold;
+    height:35px;
+}
+
+/* SKILLS */
+.skills{
+    max-width:500px;
+    margin:40px auto;
+    text-align:left;
+}
+
+.skill{
+    margin-bottom:15px;
+}
+
+.skill span{
+    font-size:14px;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:var(--card);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.bar div{
+    height:100%;
+    background:var(--accent);
+    animation:loadBar 1.5s ease;
+}
+
+/* PROJECTS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:var(--card);
+    padding:25px;
+    border-radius:15px;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+/* EXPERIENCE */
+.timeline{
+    max-width:700px;
+    margin:auto;
+    text-align:left;
+}
+.timeline div{
+    background:var(--card);
+    padding:15px;
+    margin-bottom:15px;
+    border-left:4px solid var(--accent);
+}
+
+/* CONTACT FORM */
+.contact-form{
+    max-width:500px;
+    margin:auto;
+    text-align:left;
+}
+.contact-form input, .contact-form textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid var(--accent);
+    background:var(--card);
+    color:var(--text);
+}
+.contact-form input:focus, .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+}
+
+/* MODAL */
+#modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+}
+#modalContent{
+    background:var(--card);
+    padding:20px;
+    width:300px;
+    margin:100px auto;
+    border-radius:15px;
+}
+#modalContent img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlide{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes loadBar{
+    from{width:0;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <span>Portfolio</span>
+    <div>
+        <a onclick="show('home')">Home</a>
+        <a onclick="show('projects')">Projects</a>
+        <a onclick="show('experience')">Experience</a>
+        <a onclick="show('contact')">Contact</a>
+        <a onclick="toggleTheme()">🌙</a>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+    <div class="profile">
+        <img src="magan1.png">
+        <div class="typing" id="typing"></div>
+        <p>Web Developer | System Developer</p>
+        <p class="about">
+            I create efficient, clean, and user-friendly systems. Passionate
+            about learning and building real-world projects.
+        </p>
+
+        <!-- SKILLS -->
+        <div class="skills">
+            <div class="skill">
+                <span>HTML / CSS</span>
+                <div class="bar"><div style="width:90%"></div></div>
+            </div>
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="bar"><div style="width:80%"></div></div>
+            </div>
+            <div class="skill">
+                <span>PHP / MySQL</span>
+                <div class="bar"><div style="width:75%"></div></div>
+            </div>
+        </div>
+
+        <a href="magan.pdf" download>
+            <button class="btn">Download Resume</button>
+        </a>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+        <div class="card" onclick="openProject('Milk Tea Nexus','1.jpg')">Milk Tea Nexus System</div>
+        <div class="card" onclick="openProject('Cooperative Management','project2.jpg')">Cooperative Management System</div>
+        <div class="card" onclick="openProject('Tools System','project3.jpg')">Tools Management System</div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h2>Experience & Education</h2>
+    <div class="timeline">
+        <div>
+            <h4>BS Information Technology</h4>
+            <p>2022 – Present</p>
+        </div>
+        <div>
+            <h4>Capstone Project Developer</h4>
+            <p>Built Management Systems & Web Apps</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="sendEmail(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+
+<!-- PROJECT MODAL -->
+<div id="modal">
+    <div id="modalContent">
+        <h3 id="modalTitle"></h3>
+        <img id="modalImg">
+        <br><br>
+        <button class="btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+const sections=document.querySelectorAll("section");
+const typing=document.getElementById("typing");
+const modal=document.getElementById("modal");
+const modalTitle=document.getElementById("modalTitle");
+const modalImg=document.getElementById("modalImg");
+
+/* Typing Animation */
+const nameText="Hi, I'm John Frich Magan";
+let i=0;
+(function type(){
+    if(i<nameText.length){
+        typing.textContent+=nameText.charAt(i);
+        i++;
+        setTimeout(type,100);
+    }
+})();
+
+/* Navigation */
+function show(id){
+    sections.forEach(s=>s.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+
+/* Dark / Light mode */
+function toggleTheme(){
+    document.body.classList.toggle("light");
+}
+
+/* Project Modal */
+function openProject(title,img){
+    modal.style.display="block";
+    modalTitle.textContent=title;
+    modalImg.src=img;
+}
+function closeModal(){ modal.style.display="none"; }
+
+/* Contact form placeholder */
+function sendEmail(e){
+    e.preventDefault();
+    alert("This is a demo. You can connect it to EmailJS or backend to send messages.");
+}
+
+/* Default */
+show('home');
+</script>
+
+</body>
+</html>
